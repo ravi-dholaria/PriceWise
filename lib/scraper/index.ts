@@ -55,10 +55,14 @@ export async function scrapeAmazonProduct(url: string) {
 
     const discountRate = $(".savingsPercentage").text().replace(/[-%]/g, "");
 
-    const ratingCounts = $("#acrCustomerReviewText")
+    let ratingCounts = $("#acrCustomerReviewText")
       .text()
       .trim()
       .replace(/[^0-9.]/g, "");
+
+    ratingCounts = ratingCounts.substring(0, ratingCounts.length / 2);
+
+    console.log("RatingCounts=>>", ratingCounts);
 
     const ratings = $(".a-size-base", "#acrPopover")
       .text()

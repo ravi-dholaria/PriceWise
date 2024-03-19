@@ -49,7 +49,7 @@ export async function scrapeandstoreproduct(ProductUrl: string) {
     );
 
     const AllProducts = await Product.find({});
-    console.log("All Products: ", AllProducts);
+    // console.log("All Products: ", AllProducts);
 
     revalidatePath(`/product/${newProduct._id}`);
   } catch (error: any) {
