@@ -102,7 +102,7 @@ export async function getSimilarProduct(ProductId: string) {
     const similarProducts = await Product.find({
       category: product.category,
       _id: { $ne: ProductId },
-    }).limit(3);
+    });
 
     return similarProducts;
   } catch (error: any) {
