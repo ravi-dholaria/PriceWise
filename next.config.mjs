@@ -3,6 +3,9 @@ const nextConfig = {
   images: {
     remotePatterns: [{ hostname: "*" }],
   },
+  serverRuntimeConfig: {
+    runtime: process.env.RUNTIME,
+  },
 };
 
 export default nextConfig;

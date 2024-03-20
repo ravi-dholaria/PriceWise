@@ -1,4 +1,3 @@
-"use client";
 import { NextResponse } from "next/server";
 
 import {
@@ -11,13 +10,12 @@ import { connectToDatabase } from "@/lib/mongoose";
 import Product from "@/lib/models/product.model";
 import { scrapeAmazonProduct } from "@/lib/scraper";
 import { generateEmailBody, sendEmail } from "@/lib/nodemailer";
+// import getConfig from "next/config";
 
-export const maxDuration = 10; // This function can run for a maximum of 300 seconds
-export const dynamic = "force-dynamic";
 export const revalidate = 0;
-export const runtime = "edge";
+export const dynamic = "force-dynamic";
 
-export async function GET(request: Request) {
+export async function GET(request: Request): Promise<NextResponse> {
   try {
     connectToDatabase();
 
